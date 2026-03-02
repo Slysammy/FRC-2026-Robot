@@ -1,0 +1,61 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "New Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooting Routine"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Intake Routine"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of Copy of New Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Shooting Routine"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Intake Routine"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}
