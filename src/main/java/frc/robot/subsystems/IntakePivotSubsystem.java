@@ -9,12 +9,12 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakePivotSubsystem extends SubsystemBase {
   private final SparkMax IntakePivot = new SparkMax(14, MotorType.kBrushless);
   public final DigitalInput IntakePivotLS = new DigitalInput(0);
+  public final DigitalInput IntakePivotLS2 = new DigitalInput(4);
   private final RelativeEncoder IntakePivotEncoder = IntakePivot.getEncoder();
   public double encoder;
   
@@ -27,7 +27,6 @@ public class IntakePivotSubsystem extends SubsystemBase {
   }
   public void setMotor(double Speed){
     IntakePivot.set(Speed);
-    SmartDashboard.putNumber("Encoder Value", IntakePivotEncoder.getPosition());
   }
 
 public void setEncoder(double value){

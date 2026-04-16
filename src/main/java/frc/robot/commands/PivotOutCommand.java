@@ -27,13 +27,15 @@ public class PivotOutCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intakePivotSubsystem.setMotor(-.3);
-   // if (RobotContainer.m_intakePivotSubsystem.PivotTravel()<= -1000000) {
-     // intakePivotSubsystem.setMotor(0);
-      //finished = true;
-   
-        
-    //}
+   // intakePivotSubsystem.setMotor(.3);
+
+    if (RobotContainer.m_intakePivotSubsystem.IntakePivotLS2.get() == false) {
+      intakePivotSubsystem.setMotor(0);
+    }else intakePivotSubsystem.setMotor(.3);
+   /*  if (RobotContainer.m_intakePivotSubsystem.PivotTravel()>= 1.586183) {
+     intakePivotSubsystem.setMotor(0);
+      finished = true;
+}*/
   }
 
   // Called once the command ends or is interrupted.
@@ -45,7 +47,7 @@ public class PivotOutCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-  //  if (finished = true) {
+  // if (finished = true) {
     //  return true;
     //}
     return false;

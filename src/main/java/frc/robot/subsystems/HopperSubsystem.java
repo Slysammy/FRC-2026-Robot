@@ -9,7 +9,6 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class HopperSubsystem extends SubsystemBase {
@@ -31,14 +30,12 @@ public class HopperSubsystem extends SubsystemBase {
    public void setLeftMotor(double Speed){
     HopperLeft.set(Speed);
     
-    SmartDashboard.putBoolean("Left LS", HopperLeftLS.get());
   }
 
   
 
   public void setRightMotor(double Speed){
     HopperRight.set(Speed);
-    SmartDashboard.putBoolean("Right LS", HopperRightLS.get());
   }
 
   public void setLeftEncoder(double position){

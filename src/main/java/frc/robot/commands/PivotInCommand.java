@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.IntakePivotSubsystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
@@ -24,8 +25,12 @@ public class PivotInCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-            
-  intakePivotSubsystem.setMotor(.3);
+   if (RobotContainer.m_intakePivotSubsystem.IntakePivotLS.get() == false) {
+    intakePivotSubsystem.setMotor(0);
+    intakePivotSubsystem.setEncoder(0);
+  } else intakePivotSubsystem.setMotor(-.2);
+
+   
 }
     
   
@@ -39,8 +44,8 @@ public class PivotInCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-   // if (intakePivotSubsystem.IntakePivotLS.get() == false) {
-     // return true;
+  // if (RobotContainer.m_intakePivotSubsystem.IntakePivotLS.get() == false) {
+    //return true;
     //}
     return false;
   }

@@ -5,16 +5,17 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.ShooterFeederSubsystem;
+import frc.robot.RobotContainer;
+import frc.robot.subsystems.IntakePivotSubsystem;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class ShooterFeederOutCommand extends Command {
-  private final ShooterFeederSubsystem shooterFeederSubsystem;
-  /** Creates a new ShooterFeederOutCommand. */
-  public ShooterFeederOutCommand(ShooterFeederSubsystem shooterFeederSubsystem) {
-    this.shooterFeederSubsystem = shooterFeederSubsystem;
-    addRequirements(shooterFeederSubsystem);
+public class PivotInTimedCommand extends Command {
+  private final IntakePivotSubsystem intakePivotSubsystem;
+  /** Creates a new PivotInCommand. */
+  public PivotInTimedCommand(IntakePivotSubsystem intakePivotSubsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
+    this.intakePivotSubsystem = intakePivotSubsystem;
+    addRequirements(intakePivotSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -24,18 +25,29 @@ public class ShooterFeederOutCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooterFeederSubsystem.setMotor(-.3);
-  }
+  
+   if (RobotContainer.m_intakePivotSubsystem.IntakePivotLS.get() == false) {
+    intakePivotSubsystem.setMotor(0);
+    intakePivotSubsystem.setEncoder(0);
+  } else intakePivotSubsystem.setMotor(-.3);
+   
+}
+    
+  
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooterFeederSubsystem.setMotor(0);
+    intakePivotSubsystem.setMotor(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+  if (RobotContainer.m_intakePivotSubsystem.IntakePivotLS.get() == false) {
+    return true;
+    }
     return false;
   }
-}
+  }
+

@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ShooterSubsystem;
 
@@ -24,15 +25,18 @@ public class ShootCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooterSubsystem.setMotor(.520000);
     shooterSubsystem.setGreenMotor(.5);
+    shooterSubsystem.setMotor(.5);
+    Timer.delay(2);
+    shooterSubsystem.setShooterFeederMotor(-.7);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooterSubsystem.setMotor(0);
     shooterSubsystem.setGreenMotor(0);
+    shooterSubsystem.setMotor(0);
+    shooterSubsystem.setShooterFeederMotor(0);
   }
 
   // Returns true when the command should end.

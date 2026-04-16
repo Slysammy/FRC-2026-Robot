@@ -7,14 +7,13 @@ package frc.robot.subsystems;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
-import edu.wpi.first.wpilibj2.command.Command;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
- // private final SparkMax ShooterBlueRight = new SparkMax(17, MotorType.kBrushless);
-  private final SparkMax ShooterBlueLeft = new SparkMax(16, MotorType.kBrushless);
+  private final SparkMax ShooterFeeder = new SparkMax(19, MotorType.kBrushless);
+  private final SparkMax ShooterBlue = new SparkMax(16, MotorType.kBrushless);
   private final SparkMax ShooterGreen = new SparkMax(18, MotorType.kBrushless);
   
   public ShooterSubsystem() {}
@@ -24,12 +23,16 @@ public class ShooterSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
   public void setMotor(double Speed){
-    ShooterBlueLeft.set(-Speed);
+    ShooterBlue.set(-Speed);
   
   }
 
   public void setGreenMotor(double Speed){
     ShooterGreen.set(-Speed);
+  }
+
+  public void setShooterFeederMotor(double Speed){
+    ShooterFeeder.set(-Speed);
   }
 
 }

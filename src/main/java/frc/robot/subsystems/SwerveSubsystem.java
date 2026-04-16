@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import static edu.wpi.first.units.Units.Meter;
 
-import com.ctre.phoenix6.hardware.CANcoder;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.commands.PathfindingCommand;
@@ -19,8 +18,6 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
-import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -32,7 +29,6 @@ import java.util.function.Supplier;
 import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
 import edu.wpi.first.wpilibj.Filesystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class SwerveSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
@@ -95,7 +91,7 @@ public class SwerveSubsystem extends SubsystemBase {
               // PPHolonomicController is the built in path following controller for holonomic drive trains
               new PIDConstants(.7, 0.0, 0.0),
               // Translation PID constants
-              new PIDConstants(0.0, 0.0, 0.0)
+              new PIDConstants(0.1, 0.0, 0.0)
               // Rotation PID constants
           ),
           config,
